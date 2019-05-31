@@ -22,12 +22,17 @@ module.exports=function(app,db){
       // *! HOME ROUTE
       app.route('/')
         .get((req, res) => {
+          if(req.user){
+            res.redirect('/profile');
+          }
+          else{
           res.render(process.cwd() + '/views/pug/index', {
             title: 'Hello',
              message: 'login', 
               showLogin: true,
               showRegistration:true
             });
+          }
         });
 
       // *! LOGIN ROUTE
