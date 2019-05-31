@@ -3,7 +3,6 @@ const bcrypt=require('bcryptjs');
  
 module.exports=function(app,db){
 
-
         // *! ENSURE AUTHENTICATION READ BELOW
       //** The challenge here is creating the middleware function 
       //** ensureAuthenticated(req, res, next), which will check 
@@ -19,6 +18,7 @@ module.exports=function(app,db){
         }
         res.redirect('/');
       };
+
       // *! HOME ROUTE
       app.route('/')
         .get((req, res) => {
@@ -82,7 +82,7 @@ module.exports=function(app,db){
       }
     
       );
-      // *!PROFILE ROUTE       
+      // *! PROFILE ROUTE       
       app.route('/profile')
         .get(ensureAuthenticated,(req,res) => {
              res.render(process.cwd() + '/views/pug/profile',{
