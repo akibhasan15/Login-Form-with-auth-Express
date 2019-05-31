@@ -3,6 +3,7 @@
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const fccTesting  = require('./freeCodeCamp/fcctesting.js');
+const io          = require('socket.io');
 // const passport    = require('passport');
 // const LocalStrategy= require('passport-local');
 // const session= require('express-session');
@@ -12,6 +13,7 @@ const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 const ObjectID = require('mongodb').ObjectID;
 const mongo    = require('mongodb').MongoClient;
 
+//*! REQUIRING THE AUTHENTICATION AND ROUTE FILES
 const routes   =require('./routes');
 const auth     =require('./auth');
 
@@ -19,6 +21,8 @@ const auth     =require('./auth');
     
 
 const app = express();
+
+//*! SET ENGINE(PUG)
 app.set('view engine','pug')
 
 fccTesting(app); //For FCC testing purposes

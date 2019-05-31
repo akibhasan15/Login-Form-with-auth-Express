@@ -3,7 +3,9 @@ const passport=require('passport');
 const bcrypt=require('bcryptjs');
 const ObjectID = require('mongodb').ObjectID;
 const session= require('express-session');
-
+     
+// *!STORE SESSION ID FOR SESSION        
+const MongoStore=require('connect-mongo')(session);
 
 module.exports=function(app,db){
 
@@ -11,6 +13,8 @@ module.exports=function(app,db){
         secret:'MySecret', //process.env.SESSION_SECRET,==this is for production
         resave: true,
         saveUninitialized: true,
+     // *! THIS CONNECT TO DATABSE AND STORE SESSION ID     
+        store: new MongoStore({ url: 'mongodb://localhost/login' }) 
       }));
       
       app.use(passport.initialize());
