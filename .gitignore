@@ -1,6 +1,6 @@
-/freeCodeCamp
-/node_modules
-/.bashrc
-/.hyperdev-assets
-/.profile
-/package-lock.json
+freeCodeCamp
+node_modules
+.bashrc
+.hyperdev-assets
+.profile
+package-lock.json
